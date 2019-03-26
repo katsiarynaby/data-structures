@@ -128,7 +128,29 @@ class BinarySearchTree {
         return node.value;
     }
 
-    
+    leftTraverse(callback) {
+        doLeft(this.root, callback);              
+  
+        function doLeft(node, callback) {
+          if (node) {
+            doLeft(node.left, callback);
+            callback(node.value);
+            doLeft(node.right, callback);          
+          }
+        }
+      }
+  
+      rightTraverse(callback) {
+        doRight(this.root, callback);
+  
+        function doRight(node, callback) {
+          if (node) {
+            doRight(node.right, callback);
+            callback(node.value);
+            doRight(node.left, callback);
+          }
+        }
+      }
 
 
 
